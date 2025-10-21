@@ -1,2 +1,24 @@
-{% block body %}
-{% endblock body %}
+<html>
+    <head>
+        <link rel="stylesheet" href="./static/styles/main.css">
+    </head>
+    <body>
+        
+        <header>
+            <h1 id="title">Bill Parry & Son Plumbing & Heating Ltd</h1>
+            <div id="navdiv">
+                <nav id="navbar">
+                    <a href="{{ url_for('plumbing') }}" id="navlink">Plumbing</a> |
+                    <a href="{{ url_for('heating') }}" id="navlink">Heating</a> |
+                    <a href="{{ url_for('about') }}" id="navlink">About</a> |
+                    <a href="{{ url_for('book') }}" role="button" id="bookbutton">BOOK NOW</a>
+                </nav>
+            </div>
+        </header>
+
+    </body>
+
+    {% block body %}
+    {% endblock body %}
+</html>
+

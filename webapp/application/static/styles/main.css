@@ -1,0 +1,73 @@
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000; text-align:
+    center; padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#title {
+    margin: 10px;
+    font-size: 30px;
+    color: #333;
+    justify-content: center;
+}
+
+/* #navbar {
+    margin: 10px;
+    display: inline-block;
+    justify-content: right;
+} */
+
+#navdiv {
+    margin: 10px;
+    display: flex;
+    justify-content: right;
+}
+
+#navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#navbar a:hover {
+    text-decoration: underline;
+}
+
+/* #bookbutton{
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+} */
+#bookbutton {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#bookbutton:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
