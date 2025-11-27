@@ -1,6 +1,7 @@
 from sqlalchemy.orm import backref
 from application import db
 from datetime import date
+from sqlalchemy import PrimaryKeyConstraint
 
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -51,16 +52,18 @@ class EmpAssigned(db.Model):
 
 
 class BookingJobs(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    #id = db.Column(db.Integer, primary_key=True)
     booking_id = db.Column(db.Integer, db.ForeignKey('booking.id'), nullable=False)
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'), nullable=False)
     job_materials = db.relationship('JobMaterials', backref='booking_jobs', lazy=True)
+    PrimaryKeyConstraint(booking_id, job_id)
 
 class JobMaterials(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    booking_jobs_id = db.Column(db.Integer, db.ForeignKey('booking_jobs.id'), nullable=False)
+    #id = db.Column(db.Integer, primary_key=True)
+    booking_id = db.Column(db.Integer, db.ForeignKey('booking_jobs.id'), nullable=False)
     material_id = db.Column(db.Integer, db.ForeignKey('material.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
+    PrimaryKeyConstraint(booking_id, material_id)
 
 class AdminCredentials(db.Model):
     id = db.Column(db.Integer, primary_key=True)

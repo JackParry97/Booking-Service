@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+<html>
+    <head>
+        <title>New Employee</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>New Employee</h2>
+            <form method="post">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="name">{{ form.name.label }}</label><br>
+                    {{ form.name(size=32) }}
+                </div>
+
+                <div>
+                    <label for="email">{{ form.email.label }}</label><br>
+                    {{ form.email(size=32) }}
+                </div>
+
+                <div>
+                    <label for="phone">{{ form.phone.label }}</label><br>
+                    {{ form.phone(size=15) }}
+                </div>
+
+                <div>
+                    <label for="access_level">{{ form.access_level.label }}</label><br>
+                    {{ form.access_level() }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
+        {% endblock body %}
+    </body>
+</html>

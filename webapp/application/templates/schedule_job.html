@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+<html>
+    <head>
+        <title>Schedule Job</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>Schedule Job</h2>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="booking_id">{{ form.booking_id.label }}</label><br>
+                    {{ form.booking_id() }}
+                </div>
+
+                <div>
+                    <label for="employee_id">{{ form.employee_id.label }}</label><br>
+                    {{ form.employee_id() }}
+                </div>
+
+                <div>
+                    <label for="date_scheduled">{{ form.date_scheduled.label }}</label><br>
+                    {{ form.date_scheduled() }}
+                </div>
+
+                <div>
+                    <label for="time_scheduled">{{ form.time_scheduled.label }}</label><br>
+                    {{ form.time_scheduled(size=20) }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
+    {% endblock body %}
+    </body>

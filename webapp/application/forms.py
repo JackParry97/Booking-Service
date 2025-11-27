@@ -1,10 +1,8 @@
 from datetime import date
-from flask.app import Flask
-from sqlalchemy.orm import query
 from wtforms.fields.core import DateField, DecimalField, IntegerField
-from application.models import Customers, Materials, Tasks
 from flask_wtf.form import FlaskForm
 from wtforms.fields import StringField, SubmitField, SelectField
+from wtforms.fields import SelectMultipleField
 from wtforms.validators import DataRequired, AnyOf, Email
 
 # Form for creating a new customer. Customer details are required.
@@ -39,8 +37,9 @@ class CreateMaterialForm(FlaskForm):
     submit = SubmitField('Create Material')
 
 # Form for selecting a job to book. Customer selects job and preferred date.
-class SelectJobForm(FlaskForm):
-    job_id = SelectField('Job', coerce=int, validators=[DataRequired()])
+class CreateBookingForm(FlaskForm):
+    # allow selecting multiple jobs for one booking
+    job_id = SelectMultipleField('Job', coerce=int, validators=[DataRequired()])
     preferred_date = DateField('Preferred Date', validators=[DataRequired()], default=date.today)
     submit = SubmitField('Book Job')
 
@@ -69,3 +68,15 @@ class AddMaterialsForm(FlaskForm):
 class SearchCustomerForm(FlaskForm):
     search_term = StringField('Search Term', validators=[DataRequired()])
     submit = SubmitField('Search')
+
+class EditBookingForm(FlaskForm):
+    booking_id = IntegerField('Booking', validators=[DataRequired()])
+    customer_id = IntegerField('Customer', validators=[DataRequired()])
+    date_booked = DateField('Date Booked', validators=[DataRequired()], default=date.today)
+    preferred_date = DateField('Preferred Date', validators=[DataRequired()], default=date.today)
+    date_scheduled = DateField('Date Scheduled', validators=[DataRequired()], default=date.today)
+    time_scheduled = StringField('Time Scheduled', validators=[DataRequired()])
+    status = SelectField('Status', choices=[('Pending', 'Pending'), ('In Progress', 'In Progress'), ('Completed', 'Completed')], validators=[DataRequired(), AnyOf(['Pending', 'In Progress', 'Completed'])])
+    emp_assigned = IntegerField('Employee Assigned', validators=[DataRequired()])
+    booking_jobs = IntegerField('Booking Jobs', validators=[DataRequired()])
+    submit = SubmitField('Edit Booking')

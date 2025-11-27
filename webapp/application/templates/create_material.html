@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+<html>
+    <head>
+        <title>Create Material</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>Create Material</h2>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="manufacturer">{{ form.manufacturer.label }}</label><br>
+                    {{ form.manufacturer(size=32) }}
+                </div>
+
+                <div>
+                    <label for="name">{{ form.name.label }}</label><br>
+                    {{ form.name(size=32) }}
+                </div>
+
+                <!-- <div>
+                    <label for="description">Description</label><br>
+                    {{ form.description(size=64) }}
+                </div> -->
+
+                <div>
+                    <label for="price">{{ form.price.label }}</label><br>
+                    {{ form.price(size=32) }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
+    {% endblock body %}
+    </body>

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+<!-- JobMaterials page -->
+<html>
+    <head>
+        <title>Add Materials To Job</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>Add Materials To Booking Job</h2>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="booking_job_id">{{ form.booking_job_id.label }}</label><br>
+                    {{ form.booking_job_id() }}
+                </div>
+
+                <div>
+                    <label for="material_id">{{ form.material_id.label }}</label><br>
+                    {{ form.material_id() }}
+                </div>
+
+                <div>
+                    <label for="quantity">{{ form.quantity.label }}</label><br>
+                    {{ form.quantity(size=12) }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
+    {% endblock body %}
+    </body>

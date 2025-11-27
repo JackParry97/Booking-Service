@@ -1,15 +1,33 @@
 {% extends 'layout.html' %}
+
 <html>
     <head>
-        <title>Book</title>
+        <title>Create Booking</title>
         <link rel="stylesheet" href="./static/styles/mystyle.css">
     </head>
     <body>
         {% block body %}
-            <main>
-                <h2>Welcome to Bill Parry & Son Plumbing & Heating Ltd</h2>
-                <p>Your trusted partner for all plumbing and heating needs.</p>
-            </main>
+        <main>
+            <h2>Book Jobs</h2>
+            <form method="post">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="job_id">Select one or more jobs</label><br>
+                    {{ form.job_id(size=6, multiple=True) }}
+                    <p class="help">Hold Ctrl (Windows) or Command (macOS) to select multiple jobs.</p>
+                </div>
+
+                <div>
+                    <label for="preferred_date">Preferred Date</label><br>
+                    {{ form.preferred_date() }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
         {% endblock body %}
     </body>
 </html>

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+<html>
+    <head>
+        <title>New Job</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>New Job</h2>
+            <form method="post">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="description">J{{ form.description.label }}</label><br>
+                    {{ form.description(size=64) }}
+                </div>
+
+                <div>
+                    <label for="category">{{ form.category.label }}</label><br>
+                    {{ form.category() }}
+                </div>
+
+                <div>
+                    <label for="price_per_hour">{{ form.price_per_hour.label }}</label><br>
+                    {{ form.price_per_hour(size=32) }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                    
+                </div>
+            </form>
+        </main>
+        {% endblock body %}
+    </body>

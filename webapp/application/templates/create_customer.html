@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+<html>
+    <head>
+        <title>Create Customer</title>
+        <link rel="stylesheet" href="./static/styles/mystyle.css">
+    </head>
+    <body>
+        {% block body %}
+        <main>
+            <h2>Create Customer</h2>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+
+                <div>
+                    <label for="name">{{ form.name.label }}</label><br>
+                    {{ form.name(size=32) }}
+                </div>
+
+                <div>
+                    <label for="email">{{ form.email.label }}</label><br>
+                    {{ form.email(size=32) }}
+                </div>
+
+                <div>
+                    <label for="phone">{{ form.phone.label }}</label><br>
+                    {{ form.phone(size=15) }}
+                </div>
+                
+                <div>
+                    <label for="address">{{ form.address.label }}</label><br>
+                    {{ form.address(size=32) }}
+                </div>
+                
+                <div>
+                    <label for="postcode">{{ form.postcode.label }}</label><br>
+                    {{ form.postcode(size=8) }}
+                </div>
+
+                <div>
+                    {{ form.submit(class="btn") }}
+                </div>
+            </form>
+        </main>
+    {% endblock body %}
+    </body>
+</html>
